@@ -12,3 +12,14 @@ CREATE TABLE accounts (
     games_list JSONB,
     users_list JSONB
 );
+
+CREATE TABLE keys (
+    game_key VARCHAR(64) NOT NULL,
+    game_name TEXT NOT NULL,
+    platform TEXT NOT NULL
+);
+
+CREATE TABLE tech_support (
+    admin_username TEXT NOT NULL,
+    hit_count INT NOT NULL
+);
