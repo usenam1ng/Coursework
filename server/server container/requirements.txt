@@ -1,2 +1,1 @@
 telebot
-psycopg2-binary
