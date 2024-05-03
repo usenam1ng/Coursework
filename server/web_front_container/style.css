@@ -12,7 +12,9 @@ body {
 
 /* Контейнер логотипа */
 .logo-container {
-    position: absolute;
+    position:relative;
+    align-items: flex-end;
+    justify-content: center;
     top: 3px;
     width: 100%;
     height: 70px;
@@ -23,6 +25,9 @@ body {
 
 /* Логотип */
 .logo {
+    position:relative;
+    align-items: flex-end;
+    justify-content: center;
     width: 260px;
     height: 50px;
     background: linear-gradient(to right, #7700ff, #E249B6);
@@ -33,13 +38,15 @@ body {
     text-align: center;
     line-height: 50px;
     cursor: pointer;
-    z-index: 1;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .separator {
+    position:relative;
+    align-items: flex-end;
+    justify-content: center;
     margin-top: 100px;
-    z-index: 1;
+
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -49,6 +56,9 @@ body {
 .games-list {display: flex}
 
 .games-list {
+    position:relative;
+    align-items: flex-end;
+    justify-content: center;
     margin-top: 30px;
     margin-left: 50px;
     margin-right: 50px;
@@ -139,20 +149,32 @@ body {
     font-weight: bold;
 }
 
-.container{
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
-    background-color: #fff;
-    width: 100%;
-    max-width: 920px;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.popupWindowWrapper {
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.container .description {
+.popupWindow{
     margin: 0 auto;
+    position: fixed;
+    align-items: flex-end;
+    justify-content: center;
+    width: 400px;
+    margin-top: 20px;
+    overflow: hidden;
+    top:50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.popupWindow .description {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
@@ -162,13 +184,17 @@ body {
     transition: all 0.3s ease;
 }
 
-.container img{
+.popupWindow img{
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     width: 50%;
     border-radius: 20px;
     object-fit: cover;
 }
 
-.container form{
+.popupWindow form{
     width: 50%;
 }
 
@@ -178,7 +204,7 @@ form h2{
 }
 
 .form-control{
-    position: relative;
+    position: center;
     margin-bottom: 15px;
 }
 
@@ -208,6 +234,9 @@ button.form-control:hover{
 }
 
 button.form-control2 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     width: 100%;
     border: none;
     padding: 10px;
@@ -228,19 +257,3 @@ button.form-control2:hover{
     border: solid 2px #E249B6;
     box-shadow: 0 10px 30px rgba(126, 5, 255, 0.5);
 }
-
-.close-button{
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.close-button:hover,
-.close-button:focus{
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
