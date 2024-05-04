@@ -1,8 +1,6 @@
 /* Общие стили */
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
@@ -58,7 +56,6 @@ body {
     align-items: flex-end;
     justify-content: center;
     margin-top: 100px;
-
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -167,10 +164,17 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: ani 0.7s forwards;
+}
+
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 .popupWindow{
-    margin: 0 auto;
     position: fixed;
     align-items: flex-end;
     justify-content: center;
@@ -183,7 +187,6 @@ body {
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
 }
 
 .popupWindow .description {
@@ -192,18 +195,33 @@ body {
     padding: 20px;
     background: #fff;
     border-radius: 18px;
+    font-size: 18px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+}
+
+.popupWindow .lot_name {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
 }
 
 .popupWindow img{
     margin: 0 auto;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     width: 50%;
     border-radius: 20px;
     object-fit: cover;
+    opacity: 0;
+    animation: ani 0.7s forwards;
+}
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 .popupWindow form{
@@ -225,9 +243,21 @@ form h2{
     margin-bottom: 5px;
 }
 
+button.closebutton {
+    width: 25px;
+    height: 25px;
+    background-image: url('src/7782773.png');
+    background-size: cover;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
 button.form-control {
     width: 100%;
-    border: none;
     padding: 10px;
     background-color: #ffffff;
     color: #000000;
@@ -250,7 +280,6 @@ button.form-control2 {
     align-items: flex-end;
     justify-content: center;
     width: 100%;
-    border: none;
     padding: 10px;
     background-color: #7700ff;
     color: #ffffff;
@@ -268,4 +297,40 @@ button.form-control2:hover{
     color: #000000;
     border: solid 2px #E249B6;
     box-shadow: 0 10px 30px rgba(126, 5, 255, 0.5);
+}
+
+
+@media only screen and (max-width: 450px)  {
+    .popupWindow {
+        width: 340px;
+        height: 570px;
+    }
+
+    .popupWindow img{
+        margin-top: -15px;
+    }
+
+    .popupWindow .description {
+        margin-top: auto;
+        font-size: 13px;
+    }
+
+    .popupWindow .lot_name {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+
+    button.form-control {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    button.form-control2 {
+        padding: 6px;
+        font-size: 13px;
+    }
+    
 }
