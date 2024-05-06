@@ -87,7 +87,7 @@
     </div>
 
     <div class="code">
-        <img src="src/psplus.png">
+        <img src="src/psplus.jpg">
         <div class="info">
             Paystation Plus
         </div>
@@ -123,7 +123,7 @@
             <div class="popupWindow">
                 <button class="closebutton" onclick="javascript:psnPopupHide()"></button>
                 <img src="src/psplus.png">
-                <h2 class="lot_name">PS Plus Premium</h2>
+                <h2>PS Plus Premium</h2>
 
                 <div class="description">
                     <label for="name">Расширенная подписка для PlayStation. В неё входит всё, что есть в PS Plus Essential, а ещё она откроет каталог с сотнями консольных хитов (будто Game Pass от Xbox).</label>
@@ -141,10 +141,50 @@
                     <label for="phone">12 месяцев</label>
                 </button>
 
-                <button class="form-control2" type="submit">КУПИТЬ</button>
+                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
         </div>
         </p>
     </div>
+
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script>
+        let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+
+        tg.expand(); //расширяем на все окно
+
+        psPlusBuyButton = document.getElementById("PSPLUSBUY");
+
+        psPlusBuyButton.addEventListener('click', function(){
+            // send some string back
+            alert("button clicked");
+            alert(`WHOA HELLOW MR. ${tg.initDataUnsafe.user.first_name}, your id is: ${tg.initDataUnsafe.user.id}`);
+            alert("starting fetch");
+
+            $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                "type": 'buy',
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                alert(response);
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
+
+        });
+
+    </script>
 
     <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
     <script>
